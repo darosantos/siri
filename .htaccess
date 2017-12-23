@@ -1,0 +1,31 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteCond %{REQUEST_URI} !-f
+	RewriteCond %{REQUEST_URI} !-d
+	RewriteBase /gfc
+	RewriteRule ^([a-z0-9\/=-]+)\/?$ index\.php?p=$1 [NC,L,QSA]
+</IfModule>
+
+Options All -Indexes
+ServerSignature Off
+
+<files ~ "^.*\.([Hh][Tt][Aa])">
+order allow,deny
+deny from all
+satisfy all
+</files>
+
+<FilesMatch gfc-config.php>
+order allow,deny
+deny from all
+</FilesMatch>
+
+# Debug errors
+#php_flag display_startup_errors On
+#php_flag display_errors On
+#php_flag html_errors On
+#php_flag ignore_repeated_errors On
+#php_flag ignore_repeated_source On
+#php_flag report_memleaks On
+#php_flag track_errors On
+#php_value error_log  "/var/www/gfcbiblioteca/nopublic/logs/default.log"
