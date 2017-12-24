@@ -6,10 +6,10 @@
 
 try {
 	// Inclui o arquivo com as constantes default do sistema
-	if ( !file_exists ( 'gfc-config.php' ) ) {
+	if ( !file_exists ( 'siri-config.php' ) ) {
 		throw new Exception ( '<h1>As definições <i>default</i> não puderam ser carregadas</h1>' );
 	}
-	require_once ('gfc-config.php');
+	require_once ('siri-config.php');
 	
 	// Constantes variáveis
 	if (! file_exists ( ABSPATH . 'app' . DIRECTORY_SEPARATOR . 'version.php' )) {
