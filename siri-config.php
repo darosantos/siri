@@ -2,29 +2,26 @@
 define( 'SERVER', '127.0.0.1' );
 define( 'USER', 'root' );
 define( 'PASS', '' );
-define( 'DATABASENAME','gfc_unemat' );
+define('DATABASENAME', 'siri_db');
 
-define( 'ABSPATH', dirname( __FILE__ ) . DIRECTORY_SEPARATOR );
-define( 'WEB_ROOT', 'http://localhost/gfc/');
-define( 'PATHTOLOG', dirname( __FILE__ ) . DIRECTORY_SEPARATOR );
-define( 'PATHTOMFC', ABSPATH . 'data.inc' . DIRECTORY_SEPARATOR );
-define( 'PATHTMPMFC', ABSPATH . 'data.inc' . DIRECTORY_SEPARATOR . 'mfc_tmp' . DIRECTORY_SEPARATOR );
+define('ABSPATH', __DIR__ . DIRECTORY_SEPARATOR);
+define('HTTP_LOCATIONT', 'http://localhost/siri/');
+define('HTTPS_LOCATION', 'https://localhost/siri/');
 
-define( 'MAX_EXECUTION_TIME', 600 );
-define( 'MAX_UPLOAD_SIZE', '2M' );
 define( 'TIMEZONE', 'America/Cuiaba' );
-define( 'DEFAULT_CHARSET', 'UTF-8' );
-define( 'DEBUG_MODE', 'ON' );
+define('OUTPUT_BUFFERING', 'On');
+define('ZLIB_OUTPUT_COMPRESSION', 'On');
+define('MAX_EXECUTION_TIME', '600');
+define('MAX_INPUT_TIME', '360');
 define( 'MEMORY_LIMIT', '128M' );
-
-define( 'UID_CONTAINER', 'BUC' );
-define( 'PREFIX_SESSION_NAME', 'SGIFCD' );
-define( 'PREFIX_ID_USER_PROFILE', 'DUP' );
-define( 'PREFIX_PASSWORD_USER_PROFILE', 'DUS' );
-define( 'PREFIX_SESSION_CATALOGUING', 'SFC' );
-define( 'PREFIX_CPF_CATALOGUING', 'CFC' );
-
-//define( 'ARTICLE_MAX_SIZE', 64424509440 ); // To 60 Mb, value in byte
-//define( 'UPLOAD_DIR_ARTICLE', 'C:\wamp64\www\rvfid\article\\' ); // To 60 Mb, value in byte
+define('DEBUG_MODE', 'ON');
+define('PATH_LOG', 'c:/wamp64/www/siri/log/');
+define('LOG_FILENAME', 'siri_php.log');
+define('MAX_UPLOAD_SIZE', '2M');
+define('DEFAULT_MIMETYPE', 'text/html');
+define('DEFAULT_CHARSET', 'UTF-8');
+define('MAX_FILE_UPLOADS', '3');
+define('SESSION_SAVE_PATH', '25;/tmp');
+define('SESSION_NAME', 'SISRIID');
 
 ?>
