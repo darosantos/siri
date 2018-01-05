@@ -5,9 +5,9 @@ define( 'PASS', '' );
 define('DATABASENAME', 'siri_db');
 
 define('ABSPATH', __DIR__ . DIRECTORY_SEPARATOR);
-define('HTTP_LOCATIONT', 'http://localhost/siri/');
-define('HTTPS_LOCATION', 'https://localhost/siri/');
+define('DOMAIN_LOCATION', 'localhost/siri/');
 
+define('APPLY_DEFAULT_PHP_OPTIONS', 'On');
 define( 'TIMEZONE', 'America/Cuiaba' );
 define('OUTPUT_BUFFERING', 'On');
 define('ZLIB_OUTPUT_COMPRESSION', 'On');
@@ -22,6 +22,7 @@ define('DEFAULT_MIMETYPE', 'text/html');
 define('DEFAULT_CHARSET', 'UTF-8');
 define('MAX_FILE_UPLOADS', '3');
 define('SESSION_SAVE_PATH', '25;/tmp');
-define('SESSION_NAME', 'SISRIID');
-
+define('SESSION_COOKIE_HTTPONLY', 'On');
+define('SESSION_CACHE_EXPIRE', '15');
+define('SESSION_NAME', sha1('SISRIID' . $_SERVER['REMODE_ADDR'] . $_SERVER['HTTP_USER_AGENT']));
 ?>
