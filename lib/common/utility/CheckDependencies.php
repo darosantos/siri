@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\lib\utility;
+namespace common\utility;
 
 final class CheckDependencies {
 	public static function versionPHP() {
