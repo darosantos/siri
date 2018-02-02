@@ -22,10 +22,11 @@ define('MAX_UPLOAD_SIZE', '2M');
 define('DEFAULT_MIMETYPE', 'text/html');
 define('DEFAULT_CHARSET', 'UTF-8');
 define('MAX_FILE_UPLOADS', '3');
-define('SESSION_SAVE_PATH', '25;/tmp');
+//define('SESSION_SAVE_PATH', '25;' . ABSPATH . 'tmp' );
+define('SESSION_SAVE_PATH', ABSPATH . 'tmp');
 define('SESSION_COOKIE_HTTPONLY', 'On');
 define('SESSION_CACHE_EXPIRE', '15');
-define('SESSION_NAME', sha1('SISRIID' . $_SERVER['REMODE_ADDR'] . $_SERVER['HTTP_USER_AGENT']));
+define('SESSION_NAME', sha1('SISRIID' . $_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT'], 40));
 
 define('DEBUG_MODE', 'On');
 define('PATH_LOG', 'c:/wamp64/www/siri/log/');

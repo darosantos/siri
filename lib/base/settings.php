@@ -1,4 +1,5 @@
 <?php
+
 use common\utility\CheckDependencies;
 
 if ( !defined(VERIFY_PHP_VERSION ) ||  VERIFY_PHP_VERSION === 'On' ){
@@ -65,7 +66,7 @@ if ( DEBUG_MODE === 'On'){
         define( 'PATH_LOG', __DIR__ . DIRECTORY_SEPARATOR );
     }
     if ( !defined(  'LOG_FILENAME' ) ){
-        define( 'LOG_FILENAME', sha1( mktime() . ' - ' . date('Y-m-d' . '.log' ) );
+        define('LOG_FILENAME', sha1(mktime() . ' - ' . date('Y-m-d' . '.log')));
     }
     error_reporting(E_ALL | E_STRICT );
     ini_set( 'error_log', PATH_LOG . LOG_FILENAME );
@@ -75,5 +76,21 @@ if ( DEBUG_MODE === 'On'){
     ini_set( 'report_memleaks', 'On' );
     ini_set( 'track_errors', 'On' );
     ini_set( 'html_errors', 'On' );
+}
+
+if (session_status() == PHP_SESSION_DISABLED) {
+    $identityErrorFrom = $_SERVER['REQUEST_METHOD'] . ' ' . $_SERVER['SERVER_PROTOCOL'] . ' ' . $_SERVER['REMOTE_ADDR'] . ':' . $_SERVER['REMOTE_PORT'];
+    $descriptionError = 'Session not started' . ' - ' . $_SERVER['SCRIPT_FILENAME'] . ' in ' . $_SERVER['REQUEST_TIME'];
+    $errorMsg = date('d/m/Y h:i:s') . "\t" . $identityErrorFrom . "t" . $descriptionError . "\n";
+    @error_log($errorMsg, 3, PATH_LOG . 'session.log');
+    throw new Exception('<h1>Problemas com o servidor: impossível inicializar uma sessão!</h1>');
+}
+
+if (!session_start()) {
+    $identityErrorFrom = $_SERVER['REQUEST_METHOD'] . ' ' . $_SERVER['SERVER_PROTOCOL'] . ' ' . $_SERVER['REMOTE_ADDR'] . ':' . $_SERVER['REMOTE_PORT'];
+    $descriptionError = 'Impossible start session' . ' - ' . $_SERVER['SCRIPT_FILENAME'] . ' in ' . $_SERVER['REQUEST_TIME'];
+    $errorMsg = date('d/m/Y h:i:s') . "\t" . $identityErrorFrom . "t" . $descriptionError . "\n";
+    @error_log($errorMsg, 3, PATH_LOG . 'session.log');
+    throw new Exception('<h1>Problemas com o servidor: impossível inicializar uma sessão!</h1>');
 }
 ?>

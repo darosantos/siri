@@ -1,16 +1,10 @@
 <?php
-if( !isset( $_SESSION ) || session_status() == PHP_SESSION_DISABLED ){
-	session_start();
+if (!isset($GLOBALS['APP_ENGINE'])) {
+    global $APP_ENGINE;
+    $GLOBALS['APP_ENGINE'] = array('APP_NAME' => 'siri',
+        'INFO_DEBUG' => ''
+    );
 }
-
-global $APP_ENGINE;
-
-/**
- * Estrutura básica da aplicação
- */
-$GLOBALS['APP_ENGINE'] = array('APP_NAME' => 'siri',
-    'VERIFIY_PHP_OPTIONS' => ''
-);
 
 include_once ('loader.php');
 ?>

@@ -1,6 +1,8 @@
 <?php
-
-global $uri;
+echo 'Teste <br/>';
+echo session_id() . '<br>';
+/*
+ /global $uri;
 $uri = filter_input( INPUT_GET, 'p', FILTER_SANITIZE_STRING );
 $dataCoded = '';
 if ( !empty( $uri ) ){
@@ -20,4 +22,5 @@ $oExecRouteSystem = new ExecRouteSystem();
 $oExecRouteSystem->exec( $uri, $dataCoded );
 
 ob_end_flush();
+*/
 ?>
